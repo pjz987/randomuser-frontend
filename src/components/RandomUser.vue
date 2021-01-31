@@ -7,7 +7,7 @@
       <div class="card-content">
         <h5 class="left-align bold">{{ user.name.first }} {{ user.name.last }}</h5>
         <a :href="user.email">{{ user.email }}</a>
-        <div class="left-align">{{ user.cell }}</div>
+        <div v-show="!cellPhoneWidth" class="left-align">{{ user.cell }}</div>
       </div>
     </div>
   </div>
@@ -17,9 +17,10 @@
 export default {
   name: 'RandomUser',
   props: {
-    user: Object
+    user: Object,
+    cellPhoneWidth: Boolean
+    }
   }
-}
 </script>
 
 <style scoped>
